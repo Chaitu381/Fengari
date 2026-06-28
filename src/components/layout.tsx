@@ -32,11 +32,22 @@ function IconLinkedin(props: SVGProps<SVGSVGElement>) {
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className={`flex items-center gap-2 font-display text-xl font-black ${className}`}>
-      <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand text-white duo-shadow">
-        <span className="text-lg leading-none">F</span>
+    <Link
+      to="/"
+      className={`group flex items-center gap-3 font-display ${className}`}
+      aria-label={`${COMPANY.name} home`}
+    >
+      <span className="grid h-13 w-13 place-items-center overflow-hidden rounded-full border border-border bg-background p-1 shadow-sm transition duration-300 group-hover:scale-105">
+        <img
+          src="/Fengari.png"
+          alt={`${COMPANY.name} logo`}
+          className="h-full w-full rounded-full object-cover"
+        />
       </span>
-      <span>{COMPANY.name}</span>
+
+      <span className="text-xl font-black tracking-tight text-foreground">
+        {COMPANY.name}
+      </span>
     </Link>
   );
 }
