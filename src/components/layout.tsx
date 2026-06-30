@@ -144,9 +144,7 @@ export function Footer() {
             <a className="flex items-center gap-2 hover:text-foreground" href={`mailto:${COMPANY.email}`}>
               <Mail className="h-4 w-4" /> {COMPANY.email}
             </a>
-            <p>{COMPANY.chaitu}</p>
-            <p>{COMPANY.adi}</p>
-            <p>{COMPANY.location}</p>
+    
           </div>
           <Link
             to="/contact"
