@@ -27,7 +27,7 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fengari - Professional Software with App-Like Interfaces" },
+      { title: "Fengari — Software, SaaS & AI Solutions with App-Like Interfaces" },
       {
         name: "description",
         content:
