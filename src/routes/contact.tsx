@@ -76,11 +76,6 @@ function Contact() {
                 value={COMPANY.email}
                 href={`mailto:${COMPANY.email}`}
               />
-
-              <InfoCard icon={Phone} label="Phone" value={COMPANY.chaitu} />
-              <InfoCard icon={Phone} label="Phone" value={COMPANY.adi} />
-
-              <InfoCard icon={MapPin} label="Location" value={COMPANY.location} />
             </div>
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm sm:p-8">
               <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand/10 blur-3xl" />
