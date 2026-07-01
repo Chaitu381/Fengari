@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
     {
-      title: "Fengari | Professional Software, AI & EdTech Solutions",
+      title: "Fengari | Software Development, AI Systems, Web Apps & Mobile Apps",
     },
     {
       name: "description",
