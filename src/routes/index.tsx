@@ -196,8 +196,12 @@ function Hero() {
              Founder-led software studio for modern businesses.
           </span>
           <h1 className="mt-6 font-display text-6xl font-black leading-none sm:text-7xl lg:text-8xl">Fengari</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            Fengari builds customized software solutions with fully interactive user experiences — including websites, web apps, mobile apps, AI systems, automation tools, dashboards, and business platforms designed for real-world use.
+          <p className="mx-auto mt-5 max-w-4xl text-center text-lg leading-8 text-muted-foreground sm:text-xl">
+            Fengari builds customized software solutions with fully interactive user experiences
+            <br className="hidden sm:block" />
+            across websites, web apps, mobile apps, AI systems, automation tools, and dashboards
+            <br className="hidden sm:block" />
+            for business platforms designed for real-world use.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
