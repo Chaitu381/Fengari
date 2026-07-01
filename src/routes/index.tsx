@@ -33,23 +33,18 @@ export const Route = createFileRoute("/")({
     {
       name: "description",
       content:
-        "Fengari builds modern software products, EdTech platforms, AI attendance systems, business dashboards, automation tools, and operations software with clean app-like interfaces.",
+        "Fengari builds customized software solutions for websites, web apps, mobile apps, AI systems, automation tools, dashboards, EdTech platforms, and business platforms designed for real-world use.",
     },
-  
-    // Keywords
     {
       name: "keywords",
       content:
-        "Fengari, software development company, professional software, EdTech platform, AI attendance system, business software, operations software, web applications, SaaS development, dashboard software, React software, Spring Boot software",
+        "Fengari, software development, custom software development, AI systems, web development, web app development, mobile app development, automation tools, dashboards, business software, EdTech software, SaaS platforms, AI attendance system",
     },
-  
-    // Robots
     {
       name: "robots",
       content: "index, follow",
     },
   
-    // Open Graph
     {
       property: "og:title",
       content: "Fengari | Software Development, AI Systems, Web Apps & Mobile Apps",
@@ -57,7 +52,7 @@ export const Route = createFileRoute("/")({
     {
       property: "og:description",
       content:
-        "Fengari creates practical software products for education, businesses, operations, AI attendance, dashboards, and automation.",
+        "Customized software development for websites, web apps, mobile apps, AI systems, automation tools, dashboards, EdTech platforms, and business platforms.",
     },
     {
       property: "og:type",
@@ -76,26 +71,23 @@ export const Route = createFileRoute("/")({
       content: "https://fengari.me/og-image.png",
     },
   
-    // Twitter / X
     {
       name: "twitter:card",
       content: "summary_large_image",
     },
     {
       name: "twitter:title",
-      content: "Fengari | Professional Software, AI & EdTech Solutions",
+      content: "Fengari | Software Development, AI Systems, Web Apps & Mobile Apps",
     },
     {
       name: "twitter:description",
       content:
-        "Modern software products, EdTech platforms, AI attendance systems, dashboards, and automation tools built with clean professional UI.",
+        "Fengari builds websites, web apps, mobile apps, AI systems, automation tools, dashboards, EdTech platforms, and business software with clean interactive interfaces.",
     },
     {
       name: "twitter:image",
       content: "https://fengari.me/og-image.png",
     },
-  
-    // Theme
     {
       name: "theme-color",
       content: "#58cc02",
