@@ -27,17 +27,95 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fengari — Software, SaaS & AI Solutions with App-Like Interfaces" },
-      {
-        name: "description",
-        content:
-          "Fengari builds attractive software products, edtech platforms, AI attendance systems, and operations tools with bright professional UI.",
-      },
-      { property: "og:title", content: "Fengari - Joyful software for serious growth" },
-      { property: "og:description", content: COMPANY.tagline },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
+    {
+      title: "Fengari | Professional Software, AI & EdTech Solutions",
+    },
+    {
+      name: "description",
+      content:
+        "Fengari builds modern software products, EdTech platforms, AI attendance systems, business dashboards, automation tools, and operations software with clean app-like interfaces.",
+    },
+  
+    // Keywords
+    {
+      name: "keywords",
+      content:
+        "Fengari, software development company, professional software, EdTech platform, AI attendance system, business software, operations software, web applications, SaaS development, dashboard software, React software, Spring Boot software",
+    },
+  
+    // Robots
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+  
+    // Open Graph
+    {
+      property: "og:title",
+      content: "Fengari | Professional Software with App-Like Interfaces",
+    },
+    {
+      property: "og:description",
+      content:
+        "Fengari creates practical software products for education, businesses, operations, AI attendance, dashboards, and automation.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://fengari.me/",
+    },
+    {
+      property: "og:site_name",
+      content: "Fengari",
+    },
+    {
+      property: "og:image",
+      content: "https://fengari.me/og-image.png",
+    },
+  
+    // Twitter / X
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Fengari | Professional Software, AI & EdTech Solutions",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Modern software products, EdTech platforms, AI attendance systems, dashboards, and automation tools built with clean professional UI.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://fengari.me/og-image.png",
+    },
+  
+    // Theme
+    {
+      name: "theme-color",
+      content: "#58cc02",
+    },
+  ],
+  
+  links: [
+    {
+      rel: "canonical",
+      href: "https://fengari.me/",
+    },
+    {
+      rel: "icon",
+      href: "/favicon.ico",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "/apple-touch-icon.png",
+    },
+  ],
   }),
   component: Home,
 });
