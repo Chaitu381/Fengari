@@ -2,15 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
   CheckCircle2,
+  Clock3,
   Mail,
+  MapPin,
   MessageSquareText,
+  Phone,
   Send,
   Sparkles,
 } from "lucide-react";
-import type { ComponentType, FormEvent, ReactNode } from "react";
-import { useState } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { PageHero, Section, Shell } from "../components/layout";
-import { COMPANY } from "../data/site";
+import { COMPANY, PRODUCTS, SERVICES } from "../data/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,7 +26,8 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact Fengari" },
       {
         property: "og:description",
-        content: "Start a serious software project with Fengari.",
+        content:
+          "Start a serious software project with Fengari.",
       },
       { property: "og:url", content: "/contact" },
     ],
@@ -50,62 +53,7 @@ const projectTypes = [
   "Full-stack Development",
 ];
 
-type SubmitStatus = "idle" | "sending" | "success" | "error";
-
 function Contact() {
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
-  const [statusMessage, setStatusMessage] = useState("");
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-
-    if (!accessKey) {
-      setSubmitStatus("error");
-      setStatusMessage("Missing Web3Forms access key. Add it in your .env file.");
-      return;
-    }
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    formData.append("access_key", accessKey);
-    formData.append("subject", "New Fengari project brief");
-    formData.append("from_name", "Fengari Website");
-    formData.append("botcheck", "");
-
-    setSubmitStatus("sending");
-    setStatusMessage("");
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = (await response.json()) as {
-        success?: boolean;
-        message?: string;
-      };
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Failed to send project brief.");
-      }
-
-      form.reset();
-      setSubmitStatus("success");
-      setStatusMessage("Project brief sent successfully. Fengari will contact you soon.");
-    } catch (error) {
-      setSubmitStatus("error");
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : "Something went wrong. Please try again or email Fengari directly.",
-      );
-    }
-  };
-
   return (
     <Shell>
       <PageHero
@@ -130,7 +78,6 @@ function Contact() {
                 href={`mailto:${COMPANY.email}`}
               />
             </div>
-
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm sm:p-8">
               <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand/10 blur-3xl" />
               <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-brand-2/10 blur-3xl" />
@@ -161,21 +108,33 @@ function Contact() {
                 ))}
               </div>
             </div>
+
+            {/* <div className="rounded-[2rem] border border-border bg-card p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-sun text-foreground">
+                  <Clock3 className="h-6 w-6" />
+                </div>
+
+                <div>
+                  <h3 className="font-display text-2xl font-black">
+                    What happens next?
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    After you send the brief, the next step is to understand the
+                    project scope, required features, timeline, and the right
+                    technical direction before starting development.
+                  </p>
+                </div>
+              </div>
+            </div> */}
           </div>
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={(event) => event.preventDefault()}
             className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm sm:p-8"
           >
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand/10 blur-3xl" />
-
-            <input
-              type="checkbox"
-              name="botcheck"
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
-            />
 
             <div className="relative mb-7">
               <div className="inline-flex items-center gap-3 rounded-full border border-border bg-background px-4 py-2 shadow-sm">
@@ -202,7 +161,6 @@ function Contact() {
               <Field label="Your name">
                 <input
                   required
-                  name="name"
                   className="input-field"
                   placeholder="Name or Company name"
                   maxLength={100}
@@ -212,7 +170,6 @@ function Contact() {
               <Field label="Email">
                 <input
                   required
-                  name="email"
                   type="email"
                   className="input-field"
                   placeholder="you@example.com"
@@ -222,7 +179,6 @@ function Contact() {
 
               <Field label="Phone">
                 <input
-                  name="phone"
                   className="input-field"
                   placeholder="Phone no. ..."
                   maxLength={30}
@@ -230,21 +186,18 @@ function Contact() {
               </Field>
 
               <Field label="Project type">
-                <select
-                  required
-                  name="project_type"
-                  className="input-field"
-                  defaultValue=""
-                >
+                <select className="input-field" defaultValue="">
                   <option value="" disabled>
                     Select project type
                   </option>
 
                   {projectTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
+                    <option key={type}>{type}</option>
                   ))}
+
+                  {/* {SERVICES.map((service) => (
+                    <option key={service.name}>{service.name}</option>
+                  ))} */}
                 </select>
               </Field>
             </div>
@@ -253,7 +206,6 @@ function Contact() {
               <Field label="Project message">
                 <textarea
                   required
-                  name="message"
                   rows={7}
                   className="input-field resize-y"
                   placeholder="Tell us about the website, app, dashboard, automation system, or product idea you want to build."
@@ -264,28 +216,15 @@ function Contact() {
 
             <button
               type="submit"
-              disabled={submitStatus === "sending"}
-              className="button-press button-pop relative mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-70"
+              className="button-press button-pop relative mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-extrabold text-white"
             >
-              {submitStatus === "sending" ? "Sending..." : "Send project brief"}
-              <Send className="h-4 w-4" />
+              Send project brief <Send className="h-4 w-4" />
             </button>
 
-            {statusMessage ? (
-              <p
-                className={
-                  submitStatus === "success"
-                    ? "relative mt-4 text-center text-sm font-extrabold text-brand"
-                    : "relative mt-4 text-center text-sm font-extrabold text-red-500"
-                }
-              >
-                {statusMessage}
-              </p>
-            ) : (
-              <p className="relative mt-4 text-center text-xs leading-6 text-muted-foreground">
-                Your project brief will be sent directly to Fengari&apos;s email.
-              </p>
-            )}
+            <p className="relative mt-4 text-center text-xs leading-6 text-muted-foreground">
+              This form currently prevents page refresh. Connect it to email,
+              backend API, or a form service to receive submissions.
+            </p>
           </form>
         </div>
       </Section>
