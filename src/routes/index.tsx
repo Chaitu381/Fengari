@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
     // Open Graph
     {
       property: "og:title",
-      content: "Fengari | Professional Software with App-Like Interfaces",
+      content: "Fengari | Software Development, AI Systems, Web Apps & Mobile Apps",
     },
     {
       property: "og:description",
