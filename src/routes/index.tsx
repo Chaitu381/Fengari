@@ -197,7 +197,7 @@ function Hero() {
           </span>
           <h1 className="mt-6 font-display text-6xl font-black leading-none sm:text-7xl lg:text-8xl">Fengari</h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            Fengari builds professional websites, apps, AI workflows, and learning platforms that are clean, intuitive, and ready for real business use.
+            Fengari builds customized software solutions with fully interactive user experiences — including websites, web apps, mobile apps, AI systems, automation tools, dashboards, and business platforms designed for real-world use.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
