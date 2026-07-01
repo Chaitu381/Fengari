@@ -141,7 +141,7 @@ function ProductsLayout() {
                 </div>
 
                 <div className="mt-10">
-                  <h2 className="font-display text-4xl font-black leading-tight text-slate-950 dark:text-white">
+                  <h2 className="font-display text-4xl font-black leading-tight text-slate-950 dark:text-black">
                     {product.name}
                   </h2>
 
