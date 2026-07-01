@@ -33,7 +33,9 @@ export const Route = createFileRoute("/products/$slug")({
           { property: "og:type", content: "product" },
         ]
       : [],
-    links: loaderData ? [{ rel: "canonical", href: `/products/${loaderData.slug}` }] : [],
+    links: loaderData
+      ? [{ rel: "canonical", href: `/products/${loaderData.slug}` }]
+      : [],
   }),
   notFoundComponent: () => (
     <Shell>
@@ -55,12 +57,10 @@ function Product() {
   const product = Route.useLoaderData();
 
   const contributors = "contributors" in product ? product.contributors : [];
-  const images = "images" in product ? product.images : undefined;
-
 
   return (
     <Shell>
-      <ProductHero product={product}/>
+      <ProductHero product={product} />
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
@@ -86,7 +86,7 @@ function Product() {
               </div>
 
               <div className="grid gap-3 p-6 sm:grid-cols-2">
-                {product.features.map((feature:string) => (
+                {product.features.map((feature: string) => (
                   <div
                     key={feature}
                     className="flex items-start gap-3 rounded-lg border border-border bg-background p-4"
@@ -104,7 +104,7 @@ function Product() {
               <h2 className="font-display text-3xl font-black">Outcomes</h2>
 
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                {product.outcomes.map((outcome:string) => (
+                {product.outcomes.map((outcome: string) => (
                   <div
                     key={outcome}
                     className="rounded-lg border border-border bg-card p-5 shadow-sm"
@@ -118,7 +118,7 @@ function Product() {
               </div>
             </div>
 
-            {contributors.length > 0 && (
+            {contributors.length > 0 ? (
               <div className="card-pop p-6">
                 <div className="flex items-start gap-4">
                   <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand text-white">
@@ -130,65 +130,91 @@ function Product() {
                       ScholarLearn project developers
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      These developers worked with Fengari on the ScholarLearn application.
+                      These developers worked with Fengari on the ScholarLearn
+                      application.
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                  {contributors.map((person: { name: string; role: string; contribution: string }) => (
-                    <div
-                      key={person.name}
-                      className="rounded-lg border border-border bg-background p-4"
-                    >
-                      <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-2 font-display text-lg font-black text-white">
-                        {person.name[0]}
-                      </div>
+                  {contributors.map(
+                    (person: {
+                      name: string;
+                      role: string;
+                      contribution: string;
+                    }) => (
+                      <div
+                        key={person.name}
+                        className="rounded-lg border border-border bg-background p-4"
+                      >
+                        <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-2 font-display text-lg font-black text-white">
+                          {person.name[0]}
+                        </div>
 
-                      <h3 className="mt-4 font-display text-xl font-black">
-                        {person.name}
-                      </h3>
-                      <p className="text-xs font-extrabold text-brand">{person.role}</p>
-                      <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                        {person.contribution}
-                      </p>
-                    </div>
-                  ))}
+                        <h3 className="mt-4 font-display text-xl font-black">
+                          {person.name}
+                        </h3>
+                        <p className="text-xs font-extrabold text-brand">
+                          {person.role}
+                        </p>
+                        <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                          {person.contribution}
+                        </p>
+                      </div>
+                    ),
+                  )}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
 
           <aside className="space-y-4 lg:sticky lg:top-24">
             <div className="card-pop p-6">
-              <h2 className="font-display text-2xl font-black">Request a demo</h2>
+              <h2 className="font-display text-2xl font-black">
+                {product.demoUrl ? "View live demo" : "Contact Fengari"}
+              </h2>
+
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                See how {product.name} can be shaped around your team, users, and daily
-                workflow.
+                {product.demoUrl
+                  ? `Open the live ${product.name} demo in a new tab.`
+                  : `Contact Fengari to discuss how ${product.name} can be shaped around your team, users, and daily workflow.`}
               </p>
 
-              <Link
-                to="/contact"
-                className="button-press button-pop mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-extrabold text-white"
-              >
-                Contact Fengari <ArrowRight className="h-4 w-4" />
-              </Link>
+              {product.demoUrl ? (
+                <a
+                  href={product.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button-press button-pop mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-extrabold text-white"
+                >
+                  Open demo <ArrowRight className="h-4 w-4" />
+                </a>
+              ) : (
+                <Link
+                  to="/contact"
+                  className="button-press button-pop mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-extrabold text-white"
+                >
+                  Contact Fengari <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </div>
 
             <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
               <h3 className="font-display text-lg font-black">Other products</h3>
 
               <div className="mt-4 grid gap-3">
-                {PRODUCTS.filter((item) => item.slug !== product.slug).map((item) => (
-                  <Link
-                    key={item.slug}
-                    to="/products/$slug"
-                    params={{ slug: item.slug }}
-                    className="rounded-lg border border-border bg-background p-4 text-sm font-extrabold transition hover:-translate-y-0.5 hover:bg-muted"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {PRODUCTS.filter((item) => item.slug !== product.slug).map(
+                  (item) => (
+                    <Link
+                      key={item.slug}
+                      to="/products/$slug"
+                      params={{ slug: item.slug }}
+                      className="rounded-lg border border-border bg-background p-4 text-sm font-extrabold transition hover:-translate-y-0.5 hover:bg-muted"
+                    >
+                      {item.name}
+                    </Link>
+                  ),
+                )}
               </div>
             </div>
           </aside>
@@ -202,14 +228,13 @@ function ProductHero({
   product,
 }: {
   product: (typeof PRODUCTS)[number];
-  images?: readonly string[];
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-[#f2fbff] py-20 dark:bg-background sm:py-24 lg:py-28">
-      <div className="absolute inset-0 soft-grid opacity-70" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-0 soft-grid opacity-70" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -234,12 +259,16 @@ function ProductHero({
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              to="/contact"
-              className="button-press button-pop inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-extrabold text-white"
-            >
-              Start a project <ArrowRight className="h-4 w-4" />
-            </Link>
+            {product.demoUrl ? (
+              <a
+                href={product.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-press button-pop inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-extrabold text-white"
+              >
+                Product demo <ArrowRight className="h-4 w-4" />
+              </a>
+            ) : null}
 
             <Link
               to="/products"
@@ -254,6 +283,7 @@ function ProductHero({
           productName={product.name}
           productStat={product.stat}
           images={product.images}
+          demoUrl={product.demoUrl}
         />
       </div>
     </section>
@@ -261,10 +291,12 @@ function ProductHero({
 }
 
 function ProductImageCarousel({
+  demoUrl,
   images,
   productName,
   productStat,
 }: {
+  demoUrl?: string;
   images?: readonly string[];
   productName: string;
   productStat: string;
@@ -311,7 +343,7 @@ function ProductImageCarousel({
       transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
       className="relative min-h-[360px] lg:min-h-[430px]"
     >
-      <div className="absolute inset-0 rounded-full bg-brand/20 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 rounded-full bg-brand/20 blur-3xl" />
 
       <motion.div
         animate={{ y: [0, -10, 0] }}
@@ -319,7 +351,9 @@ function ProductImageCarousel({
         className="absolute left-0 top-4 z-20 hidden rounded-2xl border border-border bg-card/90 px-4 py-3 shadow-xl backdrop-blur sm:block"
       >
         <p className="text-xs font-extrabold text-muted-foreground">Status</p>
-        <p className="font-display text-xl font-black text-brand">{productStat}</p>
+        <p className="font-display text-xl font-black text-brand">
+          {productStat}
+        </p>
       </motion.div>
 
       <motion.div
@@ -327,7 +361,9 @@ function ProductImageCarousel({
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-4 right-0 z-20 hidden rounded-2xl border border-border bg-card/90 px-4 py-3 shadow-xl backdrop-blur sm:block"
       >
-        <p className="text-xs font-extrabold text-muted-foreground">Experience</p>
+        <p className="text-xs font-extrabold text-muted-foreground">
+          Experience
+        </p>
         <p className="font-display text-xl font-black text-brand">Clean UX</p>
       </motion.div>
 
@@ -343,7 +379,7 @@ function ProductImageCarousel({
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -70, scale: 0.98 }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="h-full w-full object-contain bg-background"
+                className="h-full w-full bg-background object-contain"
               />
             </AnimatePresence>
           ) : (
@@ -372,12 +408,14 @@ function ProductImageCarousel({
                   <p className="text-sm font-extrabold text-brand">
                     {fallbackSlides[activeIndex].subtitle}
                   </p>
+
                   <h3 className="mt-2 font-display text-4xl font-black">
                     {fallbackSlides[activeIndex].title}
                   </h3>
+
                   <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
-                    Add real screenshots in the product data to replace this animated
-                    placeholder with actual product previews.
+                    Add real screenshots in the product data to replace this
+                    animated placeholder with actual product previews.
                   </p>
                 </div>
 
@@ -388,6 +426,7 @@ function ProductImageCarousel({
                       className="rounded-xl border border-border bg-card p-3 shadow-sm"
                     >
                       <div className="h-2 w-12 rounded-full bg-brand/50" />
+
                       <p className="mt-3 text-xs font-extrabold text-muted-foreground">
                         {item}
                       </p>
@@ -414,6 +453,19 @@ function ProductImageCarousel({
             />
           ))}
         </div>
+
+        {demoUrl ? (
+          <div className="mt-5 flex justify-center">
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-press button-pop inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-extrabold text-white"
+            >
+              Product demo <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        ) : null}
       </div>
     </motion.div>
   );

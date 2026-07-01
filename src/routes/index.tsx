@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-  ArrowLeft,
   ArrowRight,
   Check,
   Cloud,
@@ -12,6 +11,7 @@ import {
   Shapes,
   Sparkles,
   Star,
+  type LucideIcon,
 } from "lucide-react";
 import { AppPathPreview, Section, Shell } from "../components/layout";
 import {
@@ -119,7 +119,13 @@ const serviceIcons = {
   Sparkles,
   GraduationCap,
   Cloud,
-} as const;
+} as const satisfies Record<string, LucideIcon>;
+
+type ServiceIconName = keyof typeof serviceIcons;
+
+function getServiceIcon(icon: string): LucideIcon {
+  return serviceIcons[icon as ServiceIconName] ?? Shapes;
+}
 
 function Home() {
   return (
@@ -182,7 +188,7 @@ function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="max-w-4xl"
+          className="max-w-4xl fw-bold"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-extrabold text-brand shadow-sm">
              Founder-led software studio for modern businesses.
@@ -754,7 +760,7 @@ function Services() {
         }}
       >
         {SERVICES.map((service) => {
-          const Icon = serviceIcons[service.icon];
+          const Icon = getServiceIcon(service.icon);
 
           return (
             <motion.div

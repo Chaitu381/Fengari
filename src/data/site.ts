@@ -80,6 +80,87 @@ export const SCHOLARLEARN_DEVELOPERS = [
 
 export const PRODUCTS = [
   {
+    slug: "scholarlearn",
+    name: "ScholarLearn",
+    category: "Learning and Assessment Platform",
+    summary:
+      "A full learning and assessment platform with tests, coding practice, analytics, attendance, and progress tracking.",
+    description:
+      "ScholarLearn is a complete education platform for institutes that need online tests, coding assessments, assignments, student analytics, attendance tracking, performance reports, and teacher review tools in one place. It helps institutions manage learning, measure progress, identify weak areas, and support students with clear academic insights.",
+    features: [
+      "Online MCQ tests",
+      "Coding assessments",
+      "Assignments and submissions",
+      "Student performance analytics",
+      "Attendance and progress tracking",
+      "Teacher review tools",
+      "Leaderboards and rankings",
+      "Email notifications",
+      "PDF and Excel performance reports",
+      "Weak-topic insights",
+    ],
+    images: [
+      "/images/ScholarLearn/Screenshot 2026-07-02 002031.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002143.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002219.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002237.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002317.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002356.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002410.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002455.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002531.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002551.png",
+      "/images/ScholarLearn/Screenshot 2026-07-02 002610.png",
+    ],
+    outcomes: [
+      "Better learner visibility",
+      "Organized assessments",
+      "Actionable performance insights",
+      "Stronger academic tracking",
+    ],
+    accent: "from-[#ffc800] to-[#ff6b6b]",
+    soft: "bg-[#fff8df]",
+    stat: "3 developers",
+    contributors: SCHOLARLEARN_DEVELOPERS,
+    demoUrl: undefined,
+  },
+  {
+    slug: "smile-kava",
+    name: "Smile Kava",
+    category: "Premium Noble Kava Brand",
+    summary:
+      "A Fiji-rooted kava brand offering premium noble kava with authentic Pacific Island heritage, quality, and calm connection.",
+    description:
+      "Smile Kava is a premium kava brand deeply rooted in centuries of Pacific Island tradition. It sources only noble kava from the fertile soils of Fiji, carefully selecting every harvest to preserve authenticity, quality, and the spirit of connection. More than a beverage, Smile Kava represents community, ceremony, and peaceful moments shared together.",
+    features: [
+      "Premium noble kava",
+      "Sourced from Fiji",
+      "Authentic Pacific Island heritage",
+      "Traditionally inspired processing",
+      "Smooth and calming experience",
+      "Community-focused brand story",
+      "Ceremonial and cultural positioning",
+      "Sustainably harvested ingredients",
+      "Quality-first product experience",
+    ],
+    images: [
+      "/images/SmileKava/Screenshot 2026-07-02 000558.png",
+      "/images/SmileKava/Screenshot 2026-07-02 000625.png",
+      "/images/SmileKava/Screenshot 2026-07-02 000644.png",
+      "/images/SmileKava/Screenshot 2026-07-02 000706.png",
+    ],
+    outcomes: [
+      "Authentic Fiji-rooted kava experience",
+      "Stronger brand trust through cultural heritage",
+      "Premium positioning for wellness-focused customers",
+      "Clear storytelling around quality, calm, and connection",
+    ],
+    accent: "from-[#22c55e] to-[#0f766e]",
+    soft: "bg-[#ecfdf5]",
+    stat: "Premium kava brand",
+    demoUrl: "https://smile-kava-ve.vercel.app/",
+  },
+  {
     slug: "stayops",
     name: "StayOps",
     category: "PG and Hostel Management",
@@ -113,6 +194,43 @@ export const PRODUCTS = [
     accent: "from-[#58cc02] to-[#1cb0f6]",
     soft: "bg-[#eefbe7]",
     stat: "7 workflows",
+    demoUrl: "https://stayops-demo.fengari.me/",
+  },
+  {
+    slug: "roam",
+    name: "Roam",
+    category: "Ride-Hailing and Mobility Platform",
+    summary:
+      "A safety-first ride-hailing platform focused on verified drivers, transparent pricing, and dependable daily travel.",
+    description:
+      "Roam is a modern mobility platform designed to make ride booking safer, clearer, and more reliable for riders and driver partners. It focuses on verified drivers, simple booking, transparent fare visibility, live trip tracking, safety-first ride flows, and a smooth driver partner experience.",
+    features: [
+      "Ride booking flow",
+      "Verified driver profiles",
+      "Transparent fare visibility",
+      "Live ride tracking",
+      "Rider and driver dashboards",
+      "Trip history and receipts",
+      "Safety-first ride experience",
+      "Driver partner management",
+      "Community-focused mobility",
+    ],
+    images: [
+      "/images/Roam/Screenshot 2026-07-02 001252.png",
+      "/images/Roam/Screenshot 2026-07-02 001329.png",
+      "/images/Roam/Screenshot 2026-07-02 001358.png",
+      "/images/Roam/Screenshot 2026-07-02 001448.png",
+    ],
+    outcomes: [
+      "Safer everyday rides",
+      "Clear and predictable pricing",
+      "Better trust between riders and drivers",
+      "More reliable local travel",
+    ],
+    accent: "from-[#00c2ff] to-[#0066ff]",
+    soft: "bg-[#e8f6ff]",
+    stat: "Mobility platform",
+    demoUrl: undefined,
   },
   {
     slug: "bethere",
@@ -148,76 +266,7 @@ export const PRODUCTS = [
     accent: "from-[#1cb0f6] to-[#ce82ff]",
     soft: "bg-[#e8f6ff]",
     stat: "AI ready",
-  },
-  {
-    slug: "scholarlearn",
-    name: "ScholarLearn",
-    category: "Learning and Assessment Platform",
-    summary:
-      "A full learning and assessment platform with tests, coding practice, analytics, attendance, and progress tracking.",
-    description:
-      "ScholarLearn is a complete education platform for institutes that need online tests, coding assessments, assignments, student analytics, attendance tracking, performance reports, and teacher review tools in one place. It helps institutions manage learning, measure progress, identify weak areas, and support students with clear academic insights.",
-    features: [
-      "Online MCQ tests",
-      "Coding assessments",
-      "Assignments and submissions",
-      "Student performance analytics",
-      "Attendance and progress tracking",
-      "Teacher review tools",
-      "Leaderboards and rankings",
-      "Email notifications",
-      "PDF and Excel performance reports",
-      "Weak-topic insights",
-    ],
-    images: [
-      "/products/scholarlearn/dashboard.webp",
-      "/products/scholarlearn/assessments.webp",
-      "/products/scholarlearn/reports.webp",
-    ],
-    outcomes: [
-      "Better learner visibility",
-      "Organized assessments",
-      "Actionable performance insights",
-      "Stronger academic tracking",
-    ],
-    accent: "from-[#ffc800] to-[#ff6b6b]",
-    soft: "bg-[#fff8df]",
-    stat: "3 developers",
-    contributors: SCHOLARLEARN_DEVELOPERS,
-  },
-  {
-    slug: "roam",
-    name: "Roam",
-    category: "Ride-Hailing and Mobility Platform",
-    summary:
-      "A safety-first ride-hailing platform focused on verified drivers, transparent pricing, and dependable daily travel.",
-    description:
-      "Roam is a modern mobility platform designed to make ride booking safer, clearer, and more reliable for riders and driver partners. It focuses on verified drivers, simple booking, transparent fare visibility, live trip tracking, safety-first ride flows, and a smooth driver partner experience.",
-    features: [
-      "Ride booking flow",
-      "Verified driver profiles",
-      "Transparent fare visibility",
-      "Live ride tracking",
-      "Rider and driver dashboards",
-      "Trip history and receipts",
-      "Safety-first ride experience",
-      "Driver partner management",
-      "Community-focused mobility",
-    ],
-    images: [
-      "/products/roam/dashboard.webp",
-      "/products/roam/rides.webp",
-      "/products/roam/reports.webp",
-    ],
-    outcomes: [
-      "Safer everyday rides",
-      "Clear and predictable pricing",
-      "Better trust between riders and drivers",
-      "More reliable local travel",
-    ],
-    accent: "from-[#00c2ff] to-[#0066ff]",
-    soft: "bg-[#e8f6ff]",
-    stat: "Mobility platform",
+    demoUrl: "https://bethere.fengari.me/",
   },
   {
     slug: "fiji-web-hub",
@@ -240,9 +289,8 @@ export const PRODUCTS = [
       "Contact and lead forms",
     ],
     images: [
-      "/products/fiji-web-hub/dashboard.webp",
-      "/products/fiji-web-hub/landing-pages.webp",
-      "/products/fiji-web-hub/reports.webp",
+      "/images/FijiWebHub/Screenshot 2026-07-02 000930.png",
+      "/images/FijiWebHub/Screenshot 2026-07-02 001017.png",
     ],
     outcomes: [
       "Stronger online presence",
@@ -253,6 +301,7 @@ export const PRODUCTS = [
     accent: "from-[#7c3aed] to-[#06b6d4]",
     soft: "bg-[#f3e8ff]",
     stat: "Web experience studio",
+    demoUrl: "https://fiji-web-hub.fengari.me/",
   },
   {
     slug: "ps-value-mart",
@@ -275,9 +324,9 @@ export const PRODUCTS = [
       "Deployed web application",
     ],
     images: [
-      "/products/ps-value-mart/dashboard.webp",
-      "/products/ps-value-mart/products.webp",
-      "/products/ps-value-mart/inventory.webp",
+      "/images/PS-ValueMart/Screenshot 2026-07-02 001605.png",
+      "/images/PS-ValueMart/Screenshot 2026-07-02 001628.png",
+      "/images/PS-ValueMart/Screenshot 2026-07-02 001647.png",
     ],
     outcomes: [
       "Faster product updates",
@@ -288,6 +337,8 @@ export const PRODUCTS = [
     accent: "from-[#f97316] to-[#ef4444]",
     soft: "bg-[#fff7ed]",
     stat: "Deployed web app",
+
+    demoUrl: "https://ps-value-mart.fengari.me/",
   },
 ] as const;
 

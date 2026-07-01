@@ -44,12 +44,13 @@ const briefPoints = [
 ];
 
 const projectTypes = [
-  "Company website",
-  "Web application",
+  "Software Development",
+  "Web Development",
   "SaaS platform",
   "EdTech platform",
-  "Admin dashboard",
-  "AI or automation system",
+  "Mobile Application",
+  "AI or Automation",
+  "Full-stack Development",
 ];
 
 function Contact() {
@@ -161,7 +162,7 @@ function Contact() {
                 <input
                   required
                   className="input-field"
-                  placeholder="Chaitanya Pilla"
+                  placeholder="Name or Company name"
                   maxLength={100}
                 />
               </Field>
@@ -179,7 +180,7 @@ function Contact() {
               <Field label="Phone">
                 <input
                   className="input-field"
-                  placeholder="+91 ..."
+                  placeholder="Phone no. ..."
                   maxLength={30}
                 />
               </Field>
@@ -194,36 +195,9 @@ function Contact() {
                     <option key={type}>{type}</option>
                   ))}
 
-                  {SERVICES.map((service) => (
+                  {/* {SERVICES.map((service) => (
                     <option key={service.name}>{service.name}</option>
-                  ))}
-                </select>
-              </Field>
-            </div>
-
-            <div className="relative mt-4 grid gap-4 sm:grid-cols-2">
-              <Field label="Interested product">
-                <select className="input-field" defaultValue="">
-                  <option value="" disabled>
-                    Choose one
-                  </option>
-
-                  {PRODUCTS.map((product) => (
-                    <option key={product.slug}>{product.name}</option>
-                  ))}
-
-                  <option>New custom project</option>
-                  <option>Not sure yet</option>
-                </select>
-              </Field>
-
-              <Field label="Timeline">
-                <select className="input-field" defaultValue="Flexible">
-                  <option>Flexible</option>
-                  <option>2 to 4 weeks</option>
-                  <option>1 to 2 months</option>
-                  <option>3 months plus</option>
-                  <option>Need guidance</option>
+                  ))} */}
                 </select>
               </Field>
             </div>
