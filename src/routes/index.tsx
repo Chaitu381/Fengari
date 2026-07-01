@@ -215,9 +215,9 @@ function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.18 }}
-          className="mt-12 grid w-full max-w-4xl gap-3 sm:grid-cols-3"
+          className="mt-12 grid w-full max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {PRODUCTS.map((product) => (
+          {PRODUCTS.slice(0, 4).map((product) => (
             <Link
               key={product.slug}
               to="/products/$slug"
@@ -225,12 +225,18 @@ function Hero() {
               className="card-pop group flex min-h-36 flex-col justify-between p-4 text-left transition hover:-translate-y-1"
             >
               <div>
-                <div className={`mb-3 h-2 w-14 rounded-full bg-gradient-to-r ${product.accent}`} />
+                <div
+                  className={`mb-3 h-2 w-14 rounded-full bg-gradient-to-r ${product.accent}`}
+                />
                 <h2 className="font-display text-xl font-black">{product.name}</h2>
-                <p className="mt-1 text-xs font-bold text-muted-foreground">{product.category}</p>
+                <p className="mt-1 text-xs font-bold text-muted-foreground">
+                  {product.category}
+                </p>
               </div>
+        
               <span className="mt-4 inline-flex items-center gap-1 text-xs font-extrabold text-brand">
-                View product <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
+                View product
+                <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
               </span>
             </Link>
           ))}
