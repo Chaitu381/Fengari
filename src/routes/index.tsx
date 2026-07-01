@@ -274,7 +274,7 @@ function Timeline() {
       <div className="pointer-events-none absolute inset-0 soft-grid opacity-25" />
       <div className="pointer-events-none absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-3xl text-center">
+      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
         <motion.span
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -290,7 +290,7 @@ function Timeline() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.06 }}
-          className="mt-2 font-display text-4xl font-black leading-tight sm:text-5xl"
+          className="mt-2 font-display text-3xl font-black leading-tight sm:text-5xl"
         >
           A focused path toward practical software products.
         </motion.h2>
@@ -307,9 +307,9 @@ function Timeline() {
         </motion.p>
       </div>
 
-      <div className="relative mx-auto mt-14 max-w-6xl">
-        {/* Common timeline line */}
-        <div className="absolute left-5 top-0 h-full w-px bg-border sm:left-1/2" />
+      <div className="relative mx-auto mt-12 max-w-6xl px-4 sm:mt-14 sm:px-6">
+        {/* Timeline line */}
+        <div className="absolute left-9 top-0 h-full w-px bg-border sm:left-1/2" />
 
         {/* Active glowing line */}
         <motion.div
@@ -317,7 +317,7 @@ function Timeline() {
           whileInView={{ height: "100%" }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute left-5 top-0 w-px bg-gradient-to-b from-brand via-brand-2 to-brand sm:left-1/2"
+          className="absolute left-9 top-0 w-px bg-gradient-to-b from-brand via-brand-2 to-brand sm:left-1/2"
         />
 
         <div className="grid gap-8">
@@ -342,21 +342,21 @@ function Timeline() {
                   scale: 1,
                   filter: "blur(0px)",
                 }}
-                viewport={{ once: false, amount: 0.55 }}
+                viewport={{ once: false, amount: 0.45 }}
                 transition={{
                   duration: 0.55,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 animate={{
-                  opacity: isPrevious ? 0.38 : isUpcoming ? 0.72 : 1,
-                  filter: isPrevious ? "blur(3px)" : "blur(0px)",
+                  opacity: isPrevious ? 0.5 : isUpcoming ? 0.78 : 1,
+                  filter: isPrevious ? "blur(2px)" : "blur(0px)",
                   scale: isActive ? 1 : 0.985,
                 }}
-                className={`relative grid grid-cols-[2.5rem_1fr] gap-4 sm:grid-cols-2 sm:gap-12 ${
+                className={`relative grid grid-cols-1 gap-5 pl-10 sm:grid-cols-2 sm:gap-12 sm:pl-0 ${
                   i % 2 ? "sm:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                {/* Year side */}
+                {/* Year side - desktop only */}
                 <div
                   className={`hidden sm:block ${
                     i % 2 ? "text-left" : "text-right"
@@ -384,10 +384,10 @@ function Timeline() {
                 <motion.div
                   animate={{
                     scale: isActive ? 1.35 : 1,
-                    opacity: isPrevious ? 0.45 : 1,
+                    opacity: isPrevious ? 0.55 : 1,
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className={`absolute left-5 top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background sm:left-1/2 ${
+                  className={`absolute left-5 top-8 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background sm:left-1/2 sm:top-6 ${
                     isActive
                       ? "bg-brand shadow-[0_0_0_10px_rgba(88,204,2,0.18)]"
                       : "bg-brand shadow-[0_0_0_6px_rgba(88,204,2,0.12)]"
@@ -404,7 +404,7 @@ function Timeline() {
                       ease: "easeOut",
                     },
                   }}
-                  className={`group relative overflow-hidden rounded-3xl border p-6 shadow-sm backdrop-blur-xl transition-all duration-300 ${
+                  className={`group relative w-full overflow-hidden rounded-3xl border p-5 shadow-sm backdrop-blur-xl transition-all duration-300 sm:p-6 ${
                     isActive
                       ? "border-brand/35 bg-card shadow-[0_24px_70px_rgba(15,23,42,0.14)]"
                       : "border-border/70 bg-card/90"
@@ -428,7 +428,7 @@ function Timeline() {
                     </div>
 
                     <h3
-                      className={`mt-1 font-display text-2xl font-black sm:mt-0 ${
+                      className={`mt-1 font-display text-xl font-black sm:mt-0 sm:text-2xl ${
                         isActive ? "text-foreground" : "text-foreground/80"
                       }`}
                     >
@@ -456,7 +456,6 @@ function Timeline() {
     </Section>
   );
 }
-
 
 function Products() {
   return (
